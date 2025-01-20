@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return "Characters List";
-});
+use App\Http\Controllers\Api\characterController;
+
+Route::get('/',[characterController::class, 'index']);
 
 Route::get('/{id}', function () {
     return "Character info";
