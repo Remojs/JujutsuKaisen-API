@@ -10,9 +10,7 @@ Route::get('/{id}', function () {
     return "Character info";
 });
 
-Route::post('/', function () {
-    return "Creating characters";
-});
+Route::post('/', [characterController::class, 'store']);
 
 Route::put('/{id}', function () {
     return "Updating characters";
