@@ -6,16 +6,10 @@ use App\Http\Controllers\Api\characterController;
 
 Route::get('/',[characterController::class, 'index']);
 
-Route::get('/{id}', function () {
-    return "Character info";
-});
+Route::get('/{id}', [characterController::class, 'show']);
 
 Route::post('/', [characterController::class, 'store']);
 
-Route::put('/{id}', function () {
-    return "Updating characters";
-});
+Route::put('/{id}', [characterController::class, 'update']);
 
-Route::delete('/{id}', function () {
-    return "Character deleted";
-});
+Route::delete('/{id}', [characterController::class, 'destroy']);
