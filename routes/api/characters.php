@@ -12,4 +12,6 @@ Route::post('/', [characterController::class, 'store']);
 
 Route::put('/{id}', [characterController::class, 'update']);
 
+Route::patch('/{id}', [characterController::class, 'updatePartial']);
+
 Route::delete('/{id}', [characterController::class, 'destroy']);
