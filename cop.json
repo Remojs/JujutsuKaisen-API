@@ -1,0 +1,39 @@
+{
+    "affiliations": [
+        {
+            "affiliationName": "Tokyo Metropolitan Curse Technical College",
+            "type": "School",
+            "location": "Tokyo",
+            "controlledBy": "Masamichi Yaga"
+          }
+    ],
+    "occupations":[
+      {
+        "occupationName": "Jujutsu Sorcerer",
+        "status": "Active",
+        "leader": "Jujutsu Higher-Ups"
+      }
+    ],
+    "grade":[
+      {
+        "gradeLevel": "Special Grade"
+      }
+    ],
+    "character":[
+      {
+        "name": "Yuuta Okkotsu",
+        "alias": "null",
+        "species": "Human",
+        "birthday": "March 7th, 2001",
+        "height": "1.80",
+        "weight": "70.0",
+        "age": "17",
+        "gender": "Male",
+        "occupation_id": 1,
+        "affiliation_id": 1,
+        "animeDebut": "Chapter 47",
+        "mangaDebut": "Chapter 0",
+        "grade_id": "1"
+      }
+    ]
+  }

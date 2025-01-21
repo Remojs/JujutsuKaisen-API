@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\characterController;
+use App\Http\Controllers\Api\CharacterController;
 
-Route::get('/',[characterController::class, 'index']);
+Route::get('/',[CharacterController::class, 'index']);
 
-Route::get('/{id}', [characterController::class, 'show']);
+Route::get('/{id}', [CharacterController::class, 'show']);
 
-Route::post('/', [characterController::class, 'store']);
+Route::post('/', [CharacterController::class, 'store']);
 
-Route::put('/{id}', [characterController::class, 'update']);
+Route::put('/{id}', [CharacterController::class, 'update']);
 
-Route::patch('/{id}', [characterController::class, 'updatePartial']);
+Route::patch('/{id}', [CharacterController::class, 'updatePartial']);
 
-Route::delete('/{id}', [characterController::class, 'destroy']);
+Route::delete('/{id}', [CharacterController::class, 'destroy']);
