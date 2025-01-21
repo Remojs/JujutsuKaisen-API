@@ -35,5 +35,20 @@
         "mangaDebut": "Chapter 0",
         "grade_id": "1"
       }
+    ],
+    "techniques":[
+      {
+        "techniqueName": "Copy",
+        "type": "Innate Technique",
+        "range": "Close Range",
+        "capabilities": "Support"
+      },
+      {
+        "techniqueName": "Cursed Speech",
+        "type": "Inherited Technique",
+        "range": "Relative range",
+        "capabilities": "Offense"
+      }
     ]
   }
+

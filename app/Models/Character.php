@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Character extends Model
 {
 
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'alias',
@@ -35,5 +37,10 @@ class Character extends Model
     public function grade(): BelongsTo{ 
         return $this->belongsTo(Grade::class, 'grade_id');
     } //un character tiene una affilation
+
+    public function cursedTechniques()
+    {
+        return $this->belongsToMany(CursedTechnique::class, 'character_cursed_technique');
+    }
 
 }

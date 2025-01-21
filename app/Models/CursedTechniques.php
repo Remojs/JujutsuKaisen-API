@@ -12,4 +12,9 @@ class CursedTechniques extends Model
         'range',
         'capabilities'
     ];
+
+    public function characters()
+    {
+        return $this->belongsToMany(Character::class, 'character_cursed_technique');
+    }
 }
