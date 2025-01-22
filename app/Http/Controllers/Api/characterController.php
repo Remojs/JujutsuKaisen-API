@@ -88,7 +88,7 @@ class CharacterController
 
     public function show($id){//getById
 
-        $character = Character::find($id);
+        $character = Character::with(['affilation', 'occupation', 'grade'])->find($id);
 
         if(!$character) { //si no encuentra el character me tira el mensaje de error
             $error = config('errors.characters.not_found');
@@ -98,13 +98,8 @@ class CharacterController
                 'status' => $error['code'],
             ], $error['code']);
         }
-
-        $data = [ //genero el arreglo con los datos del character para retornarlo
-            'character' => $character,
-            'status' => 200
-        ];
-
-        return response()->json($data, 201);
+        
+        return response()->json($character);
         
     }
 
@@ -139,16 +134,21 @@ class CharacterController
             ], $error['code']);
         }
 
-        $validator = Validator::make($request->all(), [ // Validar los datos que llegan
-            'name' => 'required|max:155|unique:character,name,' . $character->id,
-            'alias' => '',
+        $validator = Validator::make($request->all(), [ //valido los datos que llegan, los cuales son todos requeridos
+            'name' => 'required|max:155',
+            'alias' => 'required',
             'species' => 'required|max:155',
             'birthday' => 'required|max:155',
-            'age' => 'required|integer',
-            'gender' => 'required|max:50',
-            'occupation' => 'required|max:255',
-            'affiliation' => 'required|max:255',
-        ]);
+            'height' => 'required',
+            'weight' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'animeDebut' => 'required',
+            'mangaDebut' => 'required',
+            'occupation_id' => 'required',
+            'affiliation_id' => 'required',
+            'grade_id' => 'required',
+            ]);
 
         if ($validator->fails()) { // Si falla la validación, devuelve el mensaje de error
             $error = config('errors.characters.validation_fails');
@@ -163,10 +163,15 @@ class CharacterController
         $character->alias = $request->alias;
         $character->species = $request->species;
         $character->birthday = $request->birthday;
+        $character->height = $request->height;
+        $character->weight = $request->weight;
         $character->age = $request->age;
         $character->gender = $request->gender;
-        $character->occupation = $request->occupation;
-        $character->affiliation = $request->affiliation;
+        $character->animeDebut = $request->animeDebut;
+        $character->mangaDebut = $request->mangaDebut;
+        $character->occupation_id = $request->occupation_id;
+        $character->affiliation_id = $request->affiliation_id;
+        $character->grade_id = $request->grade_id;
 
         $character->save();
 
