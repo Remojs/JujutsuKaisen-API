@@ -1,32 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\affiliationControllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-
 use App\Models\Affiliation;
 
 
-class AffiliationController
-{
-    public function index(){
-
-        $affiliation = Affiliation::with(['characters'])->get();
-
-        if ($affiliation->isEmpty()) {
-            $error = config('errors.characters.empty');
-            return response()->json([
-                'message' => $error['message'],
-                'status' => $error['code'],
-            ], $error['code']);
-        }
-
-        return response()->json($affiliation, 200);
-    }
-
-    public function store(Request $request){//create
+class CreateAffiliations{
+    public function create(Request $request){//create
         $validator = Validator::make($request->all(), [ //valido los datos que llegan, los cuales son todos requeridos
         'affiliationName' => 'required',
         'type' => 'required',
@@ -65,17 +48,5 @@ class AffiliationController
         ];
 
         return response()->json($data, 201);
-    }
-
-    public function show($id){//getById
-
-    }
-
-    public function update(Request $request, $id){ //update
-
-    }
-
-    public function updatePartial(Request $request, $id){
-
     }
 }
