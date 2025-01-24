@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\CharacterController;
+use App\Http\Controllers\Api\characterControllers\GetAllCharacters;
+use App\Http\Controllers\Api\characterControllers\GetCharactersById;
+use App\Http\Controllers\Api\characterControllers\DeleteCharacters;
+use App\Http\Controllers\Api\characterControllers\UpdateCharacters;
+use App\Http\Controllers\Api\characterControllers\CreateCharacters;
+use App\Http\Controllers\Api\characterControllers\UpdatePartialCharacters;
 
-Route::get('/',[CharacterController::class, 'index']);
-
-Route::get('/{id}', [CharacterController::class, 'show']);
-
-Route::post('/', [CharacterController::class, 'store']);
-
-Route::put('/{id}', [CharacterController::class, 'update']);
-
-Route::patch('/{id}', [CharacterController::class, 'updatePartial']);
-
-Route::delete('/{id}', [CharacterController::class, 'destroy']);
+Route::get('/',[GetAllCharacters::class, 'getAll']);
+Route::get('/{id}', [GetCharactersById::class, 'getById']);
+Route::post('/', [CreateCharacters::class, 'create']);
+Route::put('/{id}', [UpdateCharacters::class, 'update']);
+Route::patch('/{id}', [UpdatePartialCharacters::class, 'updatePartial']);
+Route::delete('/{id}', [DeleteCharacters::class, 'delete']);
