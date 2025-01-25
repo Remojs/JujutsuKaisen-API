@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\OccupationController;
+use App\Http\Controllers\Api\occupationControllers\GetAllOccupations;
+use App\Http\Controllers\Api\occupationControllers\GetOccupationsById;
+use App\Http\Controllers\Api\occupationControllers\DeleteOccupations;
+use App\Http\Controllers\Api\occupationControllers\UpdateOccupations;
+use App\Http\Controllers\Api\occupationControllers\CreateOccupations;
+use App\Http\Controllers\Api\occupationControllers\UpdatePartialOccupations;
 
-Route::get('/',[OccupationController::class, 'index']);
-
-Route::get('/{id}', [OccupationController::class, 'show']);
-
-Route::post('/', [OccupationController::class, 'store']);
-
-Route::put('/{id}', [OccupationController::class, 'update']);
-
-Route::patch('/{id}', [OccupationController::class, 'updatePartial']);
-
-Route::delete('/{id}', [OccupationController::class, 'destroy']);
+Route::get('/',[GetAllOccupations::class, 'getAll']);
+Route::get('/{id}', [GetOccupationsById::class, 'getById']);
+Route::post('/', [CreateOccupations::class, 'create']);
+Route::put('/{id}', [UpdateOccupations::class, 'update']);
+Route::patch('/{id}', [UpdatePartialOccupations::class, 'updatePartial']);
+Route::delete('/{id}', [DeleteOccupations::class, 'delete']);
