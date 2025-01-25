@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\gradeControllers\GetAllGrades;
-use App\Http\Controllers\Api\gradeControllers\GetGradesById;
-use App\Http\Controllers\Api\gradeControllers\DeleteGrades;
-use App\Http\Controllers\Api\gradeControllers\UpdateGrades;
-use App\Http\Controllers\Api\gradeControllers\CreateGrades;
-use App\Http\Controllers\Api\gradeControllers\UpdatePartialGrades;
+use App\Http\Controllers\gradeControllers\GetAllGrades;
+use App\Http\Controllers\gradeControllers\GetGradesById;
+use App\Http\Controllers\gradeControllers\DeleteGrades;
+use App\Http\Controllers\gradeControllers\UpdateGrades;
+use App\Http\Controllers\gradeControllers\CreateGrades;
+use App\Http\Controllers\gradeControllers\UpdatePartialGrades;
 
 Route::get('/',[GetAllGrades::class, 'getAll']);
 Route::get('/{id}', [GetGradesById::class, 'getById']);

@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\occupationControllers\GetAllOccupations;
-use App\Http\Controllers\Api\occupationControllers\GetOccupationsById;
-use App\Http\Controllers\Api\occupationControllers\DeleteOccupations;
-use App\Http\Controllers\Api\occupationControllers\UpdateOccupations;
-use App\Http\Controllers\Api\occupationControllers\CreateOccupations;
-use App\Http\Controllers\Api\occupationControllers\UpdatePartialOccupations;
+use App\Http\Controllers\occupationControllers\GetAllOccupations;
+use App\Http\Controllers\occupationControllers\GetOccupationsById;
+use App\Http\Controllers\occupationControllers\DeleteOccupations;
+use App\Http\Controllers\occupationControllers\UpdateOccupations;
+use App\Http\Controllers\occupationControllers\CreateOccupations;
+use App\Http\Controllers\occupationControllers\UpdatePartialOccupations;
 
 Route::get('/',[GetAllOccupations::class, 'getAll']);
 Route::get('/{id}', [GetOccupationsById::class, 'getById']);
