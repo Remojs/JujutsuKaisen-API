@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Character;
 
 
-class UpadateCharacters{
+class UpdateCharacters{
     public function update(Request $request, $id){ //update
         $character = Character::find($id);
 

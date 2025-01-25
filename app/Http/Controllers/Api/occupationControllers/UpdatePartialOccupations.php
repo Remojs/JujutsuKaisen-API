@@ -30,9 +30,9 @@ class UpdatePartialOccupations{
         }
 
         $validator = Validator::make($request->all(), [ // Validar los datos que llegan
-            'occupationName' => 'required',
-            'status' => 'required',
-            'leader' => 'required',
+            'occupationName' => '',
+            'status' => '',
+            'leader' => '',
         ]);
 
         if ($validator->fails()) { // Si falla la validación, devuelve el mensaje de error

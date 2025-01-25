@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\CursedTechniques;
-
+ 
 
 class UpdatePartialCursedTechniques{
     public function updatePartial(Request $request, $id){
@@ -21,10 +21,10 @@ class UpdatePartialCursedTechniques{
         }
 
         $validator = Validator::make($request->all(), [
-            'techniqueName' => 'required',
-            'type' => 'required',
-            'range' => 'required',
-            'capabilities' => 'required'
+            'techniqueName' => '',
+            'type' => '',
+            'range' => '',
+            'capabilities' => ''
         ]);
 
         if ($validator->fails()) {

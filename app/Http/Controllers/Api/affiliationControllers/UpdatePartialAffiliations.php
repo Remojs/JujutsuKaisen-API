@@ -30,10 +30,10 @@ class UpdatePartialAffiliations{
         }
 
         $validator = Validator::make($request->all(), [ // Validar los datos que llegan
-            'affiliationName' => 'required',
-            'type' => 'required',
-            'location' => 'required',
-            'controlledBy' => 'required',
+            'affiliationName' => '',
+            'type' => '',
+            'location' => '',
+            'controlledBy' => '',
         ]);
 
         if ($validator->fails()) { // Si falla la validación, devuelve el mensaje de error

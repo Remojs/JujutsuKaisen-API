@@ -18,7 +18,6 @@ class GetGradesById{
             $error = config('errors.characters.not_found');
             return response()->json([
                 'message' => $error['message'],
-                'errors'=> $validator->errors(),
                 'status' => $error['code'],
             ], $error['code']);
         }
