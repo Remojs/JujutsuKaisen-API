@@ -2,16 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\cursedTechniqueControllers\GetAllCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\GetCursedTechniquesById;
-use App\Http\Controllers\cursedTechniqueControllers\DeleteCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\UpdateCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\CreateCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\UpdatePartialCursedTechniques;
+use App\Http\Handlers\cursedTechniqueHandler;
 
-Route::get('/',[GetAllCursedTechniques::class, 'getAll']);
-Route::get('/{id}', [GetCursedTechniquesById::class, 'getById']);
-Route::post('/', [CreateCursedTechniques::class, 'create']);
-Route::put('/{id}', [UpdateCursedTechniques::class, 'update']);
-Route::patch('/{id}', [UpdatePartialCursedTechniques::class, 'updatePartial']);
-Route::delete('/{id}', [DeleteCursedTechniques::class, 'delete']);
+Route::get('/',[cursedTechniqueHandler::class, 'getAll']);
+Route::get('/{id}', [cursedTechniqueHandler::class, 'getById']);
+Route::post('/', [cursedTechniqueHandler::class, 'create']);
+Route::put('/{id}', [cursedTechniqueHandler::class, 'update']);
+Route::patch('/{id}', [cursedTechniqueHandler::class, 'updatePartial']);
+Route::delete('/{id}', [cursedTechniqueHandler::class, 'delete']);
