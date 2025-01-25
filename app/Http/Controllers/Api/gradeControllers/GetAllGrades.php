@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\occupationControllers;
+namespace App\Http\Controllers\Api\gradeControllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,4 +24,4 @@ class GetAllGrades{
 
         return response()->json($occupation, 200);
     }
-}
+} 

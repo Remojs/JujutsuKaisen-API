@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\GradeController;
+use App\Http\Controllers\Api\gradeControllers\GetAllGrades;
+use App\Http\Controllers\Api\gradeControllers\GetGradesById;
+use App\Http\Controllers\Api\gradeControllers\DeleteGrades;
+use App\Http\Controllers\Api\gradeControllers\UpdateGrades;
+use App\Http\Controllers\Api\gradeControllers\CreateGrades;
+use App\Http\Controllers\Api\gradeControllers\UpdatePartialGrades;
 
-Route::get('/',[GradeController::class, 'index']);
-
-Route::get('/{id}', [GradeController::class, 'show']);
-
-Route::post('/', [GradeController::class, 'store']);
-
-Route::put('/{id}', [GradeController::class, 'update']);
-
-Route::patch('/{id}', [GradeController::class, 'updatePartial']);
-
-Route::delete('/{id}', [GradeController::class, 'destroy']);
+Route::get('/',[GetAllGrades::class, 'getAll']);
+Route::get('/{id}', [GetGradesById::class, 'getById']);
+Route::post('/', [CreateGrades::class, 'create']);
+Route::put('/{id}', [UpdateGrades::class, 'update']);
+Route::patch('/{id}', [UpdatePartialGrades::class, 'updatePartial']);
+Route::delete('/{id}', [DeleteGrades::class, 'delete']);

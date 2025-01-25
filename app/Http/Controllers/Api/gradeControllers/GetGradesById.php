@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 use App\Models\Grade;
-
+ 
 
 class GetGradesById{
     public function getById($id){
