@@ -1,27 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Api\gradeControllers;
+namespace App\Http\Controllers\Api\cursedTechniqueControllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\CursedTechniques;
 
-use App\Models\Grade;
 
+class UpdateCursedTechniques{
+    public function update(Request $request, $id){ //update
 
-class UpdatePartialGrades{
-    public function updatePartial(Request $request, $id){
-        $grade = Grade::find($id);
+        $cursedTechnique = CursedTechniques::find($id);
 
-        if (!$grade) {
-            $error = config('errors.characters.not_found');
-            return response()->json([
-                'message' => $error['message'],
-                'status' => $error['code'],
-            ], $error['code']);
-        }
-
-        if (!$grade) {
+        if (!$cursedTechnique) {
             $error = config('errors.characters.not_found');
             return response()->json([
                 'message' => $error['message'],
@@ -30,8 +22,11 @@ class UpdatePartialGrades{
         }
 
         $validator = Validator::make($request->all(), [
-            'gradeLevel' => 'required',
-        ]);
+            'techniqueName' => 'required',
+            'type' => 'required',
+            'range' => 'required',
+            'capabilities' => 'required'
+            ]);
 
         if ($validator->fails()) {
             $error = config('errors.characters.validation_fails');
@@ -42,18 +37,18 @@ class UpdatePartialGrades{
             ], $error['code']);
         }
 
-        if($request->has('gradeLevel')){ $grade->gradeLevel = $request->gradeLevel; }
+        $cursedTechnique->techniqueName = $request->techniqueName;
+        $cursedTechnique->type = $request->type;
+        $cursedTechnique->range = $request->range;
+        $cursedTechnique->capabilities = $request->capabilities;
 
-        $grade->save();
+        $cursedTechnique->save();
 
         $success = config('errors.characters.update_success');
         return response()->json([
             'message' => $success['message'],
-            'grade' => $grade,
+            'cursedTechnique' => $cursedTechnique,
             'status' => $success['code'],
         ], $success['code']);
-
-        
-
     }
 }
