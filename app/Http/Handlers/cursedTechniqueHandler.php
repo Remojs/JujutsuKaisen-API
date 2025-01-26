@@ -2,12 +2,12 @@
 
 namespace App\Http\Handlers;
 
-use App\Http\Controllers\cursedTechniqueControllers\GetAllCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\GetCursedTechniquesById;
-use App\Http\Controllers\cursedTechniqueControllers\DeleteCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\UpdateCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\CreateCursedTechniques;
-use App\Http\Controllers\cursedTechniqueControllers\UpdatePartialCursedTechniques;
+use App\Http\Controllers\cursedTechniqueControllers\GetAllCharacterCursedTechnique;
+use App\Http\Controllers\cursedTechniqueControllers\GetAllCharacterCursedTechniqueId;
+use App\Http\Controllers\cursedTechniqueControllers\GetCharacterCursedTechniqueById;
+use App\Http\Controllers\cursedTechniqueControllers\DeleteCharacterCursedTechnique;
+use App\Http\Controllers\cursedTechniqueControllers\UpdateCharacterCursedTechnique;
+use App\Http\Controllers\cursedTechniqueControllers\CreateCharacterCursedTechnique;
 use Illuminate\Http\Request;
 
 class cursedTechniqueHandler
@@ -16,19 +16,19 @@ class cursedTechniqueHandler
     protected $getById;
     protected $create;
     protected $update;
-    protected $updatePartial;
     protected $delete;
-
+    
     public function __construct(
-        GetAllCursedTechniques $getAll,
-        GetCursedTechniquesById $getById,
-        CreateCursedTechniques $create,
-        UpdateCursedTechniques $update,
-        UpdatePartialCursedTechniques $updatePartial,
-        DeleteCursedTechniques $delete
+        GetAllCharacterCursedTechnique $getAll,
+        GetAllCharacterCursedTechniqueId $getAllId,
+        GetCharacterCursedTechniqueById $getById,
+        CreateCharacterCursedTechnique $create,
+        UpdateCharacterCursedTechnique $update,
+        DeleteCharacterCursedTechnique $delete
     ) 
     {
         $this->getAll = $getAll;
+        $this->getAllId = $getAllId;
         $this->getById = $getById;
         $this->create = $create;
         $this->update = $update;
@@ -37,9 +37,9 @@ class cursedTechniqueHandler
     }
 
     public function getAll() { return $this->getAll->getAll(); }
+    public function getAllId() { return $this->getAllId->getAllId(); }
     public function getById($id) { return $this->getById->getById($id); }
     public function create(Request $request) { return $this->create->create($request); }
     public function update(Request $request, $id) { return $this->update->update($request, $id); }
-    public function updatePartial(Request $request, $id) { return $this->updatePartial->updatePartial($request, $id); }
     public function delete($id) { return $this->delete->delete($id); }
 }

@@ -12,9 +12,9 @@ use App\Models\Grade;
 class GetAllGrades{
     public function getAll(){
 
-        $occupation = Grade::with(['characters'])->get();
+        $grade = Grade::with(['characters'])->get();
 
-        if ($occupation->isEmpty()) {
+        if ($grade->isEmpty()) {
             $error = config('errors.grades.empty');
             return response()->json([
                 'message' => $error['message'],
@@ -22,6 +22,6 @@ class GetAllGrades{
             ], $error['code']);
         }
 
-        return response()->json($occupation, 200);
+        return response()->json($grade, 200);
     }
 } 

@@ -21,3 +21,7 @@ Route::prefix('grades')->group(function() {
 Route::prefix('cursedTechniques')->group(function() {
     require base_path('routes/api/cursedTechniques.php');
 });
+
+Route::prefix('characterCursedTechniques')->group(function() {
+    require base_path('routes/api/character_cursed_techniques.php');
+});
