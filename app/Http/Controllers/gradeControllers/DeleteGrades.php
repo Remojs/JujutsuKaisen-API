@@ -16,13 +16,13 @@ class DeleteGrades{
         $grade = Grade::find($id);
 
         if(!$grade) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.grades.not_found');
             return response()->json(['message' => $error['message'],'status' => $error['code'],], $error['code']);
         }
 
         $grade->delete();
 
-        $success = config('errors.characters.destroy_success');
+        $success = config('errors.grades.destroy_success');
         return response()->json($success['message'], $success['code']);
         
     }

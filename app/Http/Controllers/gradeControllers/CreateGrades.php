@@ -15,7 +15,7 @@ class CreateGrades{
         ]);
 
         if($validator->fails()){
-            $error = config('errors.characters.validation_fails');
+            $error = config('errors.grades.validation_fails');
             return response()->json(['message' => $error['message'],'errors'=> $validator->errors(),'status' => $error['code'],], $error['code']);
         }
 
@@ -24,7 +24,7 @@ class CreateGrades{
         ]);
 
         if(!$grade) {
-            $error = config('errors.characters.store_error');
+            $error = config('errors.grades.store_error');
             return response()->json(['message' => $error['message'],'errors'=> $validator->errors(),'status' => $error['code'],], $error['code']);
         }
 

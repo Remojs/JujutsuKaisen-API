@@ -14,7 +14,7 @@ class UpdatePartialCursedTechniques{
         $cursedTechnique = CursedTechniques::find($id);
 
         if (!$cursedTechnique) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.cursedTechniques.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],
@@ -29,7 +29,7 @@ class UpdatePartialCursedTechniques{
         ]);
 
         if ($validator->fails()) {
-            $error = config('errors.characters.validation_fails');
+            $error = config('errors.cursedTechniques.validation_fails');
             return response()->json([
                 'message' => $error['message'],
                 'errors' => $validator->errors(),
@@ -44,7 +44,7 @@ class UpdatePartialCursedTechniques{
 
         $cursedTechnique->save();
 
-        $success = config('errors.characters.update_success');
+        $success = config('errors.cursedTechniques.update_success');
         return response()->json([
             'message' => $success['message'],
             'cursedTechnique' => $cursedTechnique,

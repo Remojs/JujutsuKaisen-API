@@ -18,7 +18,7 @@ class CreateCursedTechniques{
             ]);
     
             if($validator->fails()){
-                $error = config('errors.characters.validation_fails');
+                $error = config('errors.cursedTechniques.validation_fails');
                 return response()->json([
                     'message' => $error['message'],
                     'errors'=> $validator->errors(),
@@ -34,7 +34,7 @@ class CreateCursedTechniques{
             ]);
     
             if(!$cursedTechnique) {
-                $error = config('errors.characters.store_error');
+                $error = config('errors.cursedTechniques.store_error');
                 return response()->json([
                     'message' => $error['message'],
                     'errors'=> $validator->errors(),

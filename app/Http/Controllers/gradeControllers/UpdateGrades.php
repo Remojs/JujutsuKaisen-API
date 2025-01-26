@@ -15,7 +15,7 @@ class UpdateGrades{
         $grade = Grade::find($id);
 
         if (!$grade) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.grades.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],
@@ -27,7 +27,7 @@ class UpdateGrades{
             ]);
 
         if ($validator->fails()) {
-            $error = config('errors.characters.validation_fails');
+            $error = config('errors.grades.validation_fails');
             return response()->json([
                 'message' => $error['message'],
                 'errors' => $validator->errors(),
@@ -39,7 +39,7 @@ class UpdateGrades{
 
         $grade->save();
 
-        $success = config('errors.characters.update_success');
+        $success = config('errors.grades.update_success');
         return response()->json([
             'message' => $success['message'],
             'grade' => $grade,

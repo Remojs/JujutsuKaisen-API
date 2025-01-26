@@ -16,7 +16,7 @@ class GetAllAffiliations{
         $affiliation = Affiliation::with(['characters'])->get();
 
         if ($affiliation->isEmpty()) {
-            $error = config('errors.characters.empty');
+            $error = config('errors.affiliations.empty');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],

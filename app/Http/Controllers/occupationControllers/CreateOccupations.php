@@ -17,7 +17,7 @@ class CreateOccupations{
         ]);
 
         if($validator->fails()){
-            $error = config('errors.characters.validation_fails');
+            $error = config('errors.occupations.validation_fails');
             return response()->json(['message' => $error['message'],'errors'=> $validator->errors(),'status' => $error['code'],], $error['code']);
         }
 
@@ -28,7 +28,7 @@ class CreateOccupations{
         ]);
 
         if(!$occupation) {
-            $error = config('errors.characters.store_error');
+            $error = config('errors.occupations.store_error');
             return response()->json(['message' => $error['message'],'errors'=> $validator->errors(),'status' => $error['code'],], $error['code']);
         }
 

@@ -15,7 +15,7 @@ class GetAllCursedTechniques{
         $cursedTechniques = CursedTechniques::get();
 
         if ($cursedTechniques->isEmpty()) {
-            $error = config('errors.characters.empty');
+            $error = config('errors.cursedTechniques.empty');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],

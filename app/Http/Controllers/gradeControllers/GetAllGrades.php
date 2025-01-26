@@ -15,7 +15,7 @@ class GetAllGrades{
         $occupation = Grade::with(['characters'])->get();
 
         if ($occupation->isEmpty()) {
-            $error = config('errors.characters.empty');
+            $error = config('errors.grades.empty');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],

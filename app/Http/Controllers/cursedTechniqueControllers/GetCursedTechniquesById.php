@@ -14,10 +14,9 @@ class GetCursedTechniquesById{
         $cursedTechnique = CursedTechniques::find($id);
 
         if(!$cursedTechnique) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.cursedTechniques.not_found');
             return response()->json([
                 'message' => $error['message'],
-                'errors'=> $validator->errors(),
                 'status' => $error['code'],
             ], $error['code']);
         }

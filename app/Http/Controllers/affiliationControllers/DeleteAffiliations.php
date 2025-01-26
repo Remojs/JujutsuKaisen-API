@@ -12,22 +12,21 @@ use App\Models\Affiliation;
 
 class DeleteAffiliations{
 
-    public function delete($id){//delete
-
+    public function delete($id){
         $affiliation = Affiliation::find($id);
 
-        if(!$affiliation) { //si no encuentra el character me tira el mensaje de error
-            $error = config('errors.characters.not_found');
+        if(!$affiliation) {
+            $error = config('errors.affiliations.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],
             ], $error['code']);
         }
 
-        $affiliation->delete(); //elimina el character
+        $affiliation->delete();
 
 
-        $success = config('errors.characters.destroy_success'); //envia el mensaje de exito
+        $success = config('errors.affiliations.destroy_success');
         return response()->json($success['message'], $success['code']);
         
     }

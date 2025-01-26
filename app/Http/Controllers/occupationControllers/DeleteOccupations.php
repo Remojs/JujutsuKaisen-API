@@ -16,13 +16,13 @@ class DeleteOccupations{
         $occupation = Occupation::find($id);
 
         if(!$occupation) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.occupations.not_found');
             return response()->json(['message' => $error['message'],'status' => $error['code'],], $error['code']);
         }
 
         $occupation->delete();
 
-        $success = config('errors.characters.destroy_success');
+        $success = config('errors.occupations.destroy_success');
         return response()->json($success['message'], $success['code']);
         
     }

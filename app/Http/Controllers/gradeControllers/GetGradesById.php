@@ -15,7 +15,7 @@ class GetGradesById{
         $grade = Grade::with(['characters'])->find($id);
 
         if(!$grade) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.grades.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],

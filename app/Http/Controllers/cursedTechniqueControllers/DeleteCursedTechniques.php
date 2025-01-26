@@ -16,13 +16,13 @@ class DeleteCursedTechniques{
         $cursedTechniques = CursedTechniques::find($id);
 
         if(!$cursedTechniques) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.cursedTechniques.not_found');
             return response()->json(['message' => $error['message'],'status' => $error['code'],], $error['code']);
         }
 
         $cursedTechniques->delete();
 
-        $success = config('errors.characters.destroy_success');
+        $success = config('errors.cursedTechniques.destroy_success');
         return response()->json($success['message'], $success['code']);
         
     }

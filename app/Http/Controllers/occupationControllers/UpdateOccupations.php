@@ -15,7 +15,7 @@ class UpdateOccupations{
         $occupation = Occupation::find($id);
 
         if (!$occupation) { // Si no encuentra el character, devuelve el mensaje de error
-            $error = config('errors.characters.not_found');
+            $error = config('errors.occupations.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],
@@ -29,7 +29,7 @@ class UpdateOccupations{
             ]);
 
         if ($validator->fails()) { // Si falla la validación, devuelve el mensaje de error
-            $error = config('errors.characters.validation_fails');
+            $error = config('errors.occupations.validation_fails');
             return response()->json([
                 'message' => $error['message'],
                 'errors' => $validator->errors(),
@@ -43,7 +43,7 @@ class UpdateOccupations{
 
         $occupation->save();
 
-        $success = config('errors.characters.update_success');
+        $success = config('errors.occupations.update_success');
         return response()->json([
             'message' => $success['message'],
             'occupation' => $occupation,

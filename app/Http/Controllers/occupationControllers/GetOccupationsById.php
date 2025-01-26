@@ -15,7 +15,7 @@ class GetOccupationsById{
         $occupation = Occupation::with(['characters'])->find($id);
 
         if(!$occupation) {
-            $error = config('errors.characters.not_found');
+            $error = config('errors.occupations.not_found');
             return response()->json([
                 'message' => $error['message'],
                 'status' => $error['code'],
